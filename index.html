@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Undertale Music Player</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+
+    button, select {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 مشغل موسيقى Undertale</h1>
+
+  <label for="character">اختار شخصية:</label>
+  <select id="character">
+    <option value="sans.mp3">Sans</option>
+    <option value="papyrus.mp3">Papyrus</option>
+    <option value="chara.mp3">Chara</option>
+  </select>
+
+  <br>
+
+  <button onclick="playMusic()">تشغيل</button>
+  <button onclick="pauseMusic()">إيقاف مؤقت</button>
+
+  <audio id="bgmusic" loop></audio>
+
+  <script>
+    const audio = document.getElementById("bgmusic");
+    const characterSelect = document.getElementById("character");
+
+    function playMusic() {
+      const selectedTrack = characterSelect.value;
+      audio.src = selectedTrack;
+      audio.play();
+    }
+
+    function pauseMusic() {
+      audio.pause();
+    }
+  </script>
+</body>
+</html>
